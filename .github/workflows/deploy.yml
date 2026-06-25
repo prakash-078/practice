@@ -24,7 +24,7 @@ jobs:
 
           script: |
 
-            cd ~/Protfolio-project-docker
+            cd ~/practice
 
             git pull
 
@@ -32,11 +32,11 @@ jobs:
 
             sudo docker rm portfolio || true
 
-            sudo docker build -t portfolio-website .
+            sudo docker build -t practice-docker .
 
             sudo docker run -d \
-              --name portfolio \
+              --name practice-container \
               -p 8080:80 \
-              portfolio-website
+              practice-docker
 
             sudo systemctl reload nginx
